@@ -15,7 +15,7 @@ false = empty
 -- any :: (Alternative f, Foldable t) => (a -> f b) -> t a -> f b
 -- @
 any :: (Alternative f, Foldable t) => (a -> f b) -> t a -> f b
-any = ($ false) . foldr . ((<|>) <$>)
+any = ($ false) . foldr . ((<|>) .)
 
 -- | Generalized version of 'Prelude.all'. It takes a predicate that gives generalized
 -- truth values in an Applicative functor on a Monoid and applies it conjunctively to

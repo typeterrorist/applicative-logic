@@ -10,11 +10,18 @@ There is a [blog post](https://hakon.gylterud.net/programming/applicative-logic.
 
 ## Installation
 
+### From Hackage
+
+
+```
+ $ cabal install applicative-logic --lib
+```
+
 ### From GitHub
 
 ```
- $ git clone 
- $ cd applicative-lgoic
+ $ git clone https://github.com/typeterrorist/applicative-logic.git
+ $ cd applicative-logic
  $ cabal install
 ```
 

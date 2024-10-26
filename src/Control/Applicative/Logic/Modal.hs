@@ -1,3 +1,26 @@
 module Control.Applicative.Logic.Modal where
 
+import Prelude hiding (all,any,or,and)
+import Control.Applicative.Logic
+
+type Algebra functor carrier = functor carrier -> carrier
+type CoAlgebra functor carrier = carrier -> functor carrier
+
+type Modal f b a = (a -> f b) -> (a -> f b) 
+
+modal :: (Functor t)
+      => Algebra t (f b)
+      -> CoAlgebra t a
+      -> Modal f b a
+modal mu nu predicate = mu  . (predicate <$>) . nu
+
+box :: (Applicative f, Foldable t, Monoid b)
+    => Coalgebra t a
+    -> Modal f b a
+box = modal and
+
+diamond :: (Applicative f, Foldable t)
+        => Coalgebra t a
+        -> Modal f b a
+diamond = modal or
 

@@ -2,6 +2,7 @@ module Control.Applicative.Logic.Modal where
 
 import Prelude hiding (all,any,or,and)
 import Control.Applicative.Logic
+import Control.Applicative
 
 type Algebra f a = f a -> a
 type CoAlgebra f a = a -> f a

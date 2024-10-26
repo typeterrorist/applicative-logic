@@ -34,7 +34,7 @@ any = ($ false) . foldr . ((<|>) .)
 
 all :: (Applicative f, Monoid b, Foldable t)
     => (a -> f b) -> t a -> f b
-all = ($ true) . foldr . (liftA2 (<>) <$>)
+all = ($ true) . foldr . (liftA2 (<>) .)
 
 
 -- | Generalized version of the boolean 'or' to foldable structures of 'Alternative' functorial values.

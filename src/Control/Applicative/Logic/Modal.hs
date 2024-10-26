@@ -18,10 +18,10 @@ modal mu nu predicate = mu  . (predicate <$>) . nu
 box :: (Applicative f, Foldable t, Monoid b)
     => CoAlgebra t a
     -> Modal f b a
-box nu pred = all pred . nu
+box nu predicate = all predicate . nu
 
 diamond :: (Alternative f, Foldable t)
         => CoAlgebra t a
         -> Modal f b a
-diamond nu pred = any pred . nu
+diamond nu predicate = any predicate . nu
 

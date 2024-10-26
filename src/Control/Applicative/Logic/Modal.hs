@@ -17,15 +17,21 @@ modal mu nu predicate = mu  . (predicate <$>) . nu
 
 
 possibly :: (Alternative f, Foldable t)
-        => CoAlgebra t a
-        -> Modal (f b) a
+         => CoAlgebra t a
+         -> Modal (f b) a
 possibly nu predicate = any predicate . nu
 
+diamond :: (Alternative f, Foldable t)
+        => CoAlgebra t a
+        -> Modal (f b) a
 diamond = possibly
 
 necessarily :: (Applicative f, Foldable t, Monoid b)
-    => CoAlgebra t a
-    -> Modal (f b) a
+            => CoAlgebra t a
+            -> Modal (f b) a
 necessarily nu predicate = all predicate . nu
 
+box :: (Applicative f, Foldable t, Monoid b)
+    => CoAlgebra t a
+    -> Modal (f b) a
 box = necessarily

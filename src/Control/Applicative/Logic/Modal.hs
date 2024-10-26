@@ -19,7 +19,7 @@ box :: (Applicative f, Foldable t, Monoid b)
     -> Modal f b a
 box = modal and
 
-diamond :: (Applicative f, Foldable t)
+diamond :: (Alternative f, Foldable t)
         => CoAlgebra t a
         -> Modal f b a
 diamond = modal or
